@@ -1,5 +1,5 @@
 //
-//  WesterosTests.swift
+//  HouseTests.swift
 //  WesterosTests
 //
 //  Created by Rafael Lujan on 11/2/18.
@@ -7,9 +7,9 @@
 //
 
 import XCTest
-@testable import Westeros
+@testable import Westeros //IMPORTANTE AÑADIR LA REFERENCIA AL PROYECTO DE LAS PRUEBAS
 
-class WesterosTests: XCTestCase {
+class HouseTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
@@ -21,16 +21,8 @@ class WesterosTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testHouseExistence() {
+        let stark = House()
+        XCTAssertNotNil(stark)
     }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-    
 }
