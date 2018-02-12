@@ -42,20 +42,30 @@ extension House {
 //MARK: - Proxy
 extension House {
     var proxyForEquality: String {
-            return "\(name) \(count) \(words)" //Por convención devolver un Int y añadir .hashValue al final del valor
+        return "\(name) \(count) \(words)" //Por convención devolver un Int y añadir .hashValue al final del valor
+    }
+    var proxyForComparison: String {
+        return name.uppercased()
     }
 }
-
+//MARK: - Equatable
 extension House: Equatable {
     static func ==(lhs: House, rhs: House) -> Bool {
         return lhs.proxyForEquality == rhs.proxyForEquality
     }
 }
-
+//MARK: - Hashable
 extension House: Hashable {
     var hashValue: Int {
         return proxyForEquality.hashValue
     }
+}
+//MARK: - Comparable
+extension House: Comparable {
+    static func <(lhs: House, rhs: House) -> Bool {
+        return lhs.proxyForComparison < rhs.proxyForComparison
+    }
+    //No hace falta implementar el resto funciones porque con el "==" y "<" swift lo implementa automaticamente todo
 }
 
 // MARK: - Sigil
