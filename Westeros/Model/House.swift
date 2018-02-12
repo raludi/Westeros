@@ -32,16 +32,17 @@ extension House {
         return _members.count
     }
     func add(person: Person) {
-        guard person.house.name == self.name else {
+        guard person.house == self else {
             return
         }
         _members.insert(person)
     }
 }
+
 //MARK: - Proxy
 extension House {
     var proxyForEquality: String {
-            return "\(name) \(count) \(words)"
+            return "\(name) \(count) \(words)" //Por convención devolver un Int y añadir .hashValue al final del valor
     }
 }
 
@@ -49,8 +50,12 @@ extension House: Equatable {
     static func ==(lhs: House, rhs: House) -> Bool {
         return lhs.proxyForEquality == rhs.proxyForEquality
     }
-    
-    
+}
+
+extension House: Hashable {
+    var hashValue: Int {
+        return proxyForEquality.hashValue
+    }
 }
 
 // MARK: - Sigil
