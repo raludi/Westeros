@@ -23,15 +23,10 @@ final class Person {
         //ALTERNATIVA: _alias ?? "" -> si existes devuelves ""
     }
     
-    init(name: String, alias: String, house: House) {
+    init(name: String, alias: String? = nil, house: House) {//al ponerle igual le damos valor por defecto para no tener que poner de conveniencia
         self.name = name
         self._alias = alias
         self.house = house
     }
     
-    init(name: String, house: House) {
-        self.name = name
-        self.house = house
-        _alias = nil
-    }
 }
