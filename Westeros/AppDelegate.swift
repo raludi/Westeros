@@ -24,19 +24,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let houses = Repository.local.houses
         
         //Creamos controladores
-        var controllers = [UIViewController]()
+        /*var controllers = [UIViewController]()
         for each in houses {
-            controllers.append(HouseDetailViewController(model: each))
-        }
-        
-        var navigationControllers = [UIViewController]()
-        for each in controllers {
-            navigationControllers.append(each.wrappedInNavigation())
-        }
+            controllers.append(HouseDetailViewController(model: each).wrappedInNavigation())
+        }*/
+        //Esto es funcional
+        let controllers = houses
+            .map({ element in
+            return HouseDetailViewController(model: element)})
+            .map({ $0.wrappedInNavigation() })
        
         //Creamos combinadores
         let tabBarViewController = UITabBarController()
-        tabBarViewController.viewControllers = navigationControllers
+        tabBarViewController.viewControllers = controllers
         
         //Asignamos el rootVC
         window?.rootViewController = tabBarViewController
