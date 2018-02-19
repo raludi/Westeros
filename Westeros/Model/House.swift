@@ -17,32 +17,46 @@ final class House {
     let name: String
     let sigil: Sigil
     let words: Words
+    let wikiURL: URL
     private var _members: Members
 
-    init(name: String, sigil: Sigil, words: Words) {
+    init(name: String, sigil: Sigil, words: Words, url: URL) {
         self.name = name
         self.sigil = sigil
         self.words = words
+        self.wikiURL = url
         _members = Members() //Al poner parentesis lo ponemos vacio
     }
 }
 
 extension House {
-    var count: Int {
+    var countMembers: Int {
         return _members.count
     }
+    
+    var sortedMember: [Person] {
+        return _members.sorted()
+    }
+    
     func add(person: Person) {
         guard person.house == self else {
             return
         }
         _members.insert(person)
     }
+    
+    func add(persons: Person...) {//Los "..." son valores infinitos separados por ","
+        /*for person in persons {
+            add(person: person)
+        }*/
+        persons.forEach( { add(person: $0) })
+    }
 }
 
 //MARK: - Proxy
 extension House {
     var proxyForEquality: String {
-        return "\(name) \(count) \(words)" //Por convención devolver un Int y añadir .hashValue al final del valor
+        return "\(name) \(countMembers) \(words)" //Por convención devolver un Int y añadir .hashValue al final del valor
     }
     var proxyForComparison: String {
         return name.uppercased()
@@ -67,6 +81,8 @@ extension House: Comparable {
     }
     //No hace falta implementar el resto funciones porque con el "==" y "<" swift lo implementa automaticamente todo
 }
+
+
 
 // MARK: - Sigil
 final class Sigil {

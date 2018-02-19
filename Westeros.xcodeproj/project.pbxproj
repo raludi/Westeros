@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0521BD2A203742D5000D0DFD /* HouseListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0521BD28203742D5000D0DFD /* HouseListTableViewController.swift */; };
+		0521BD2B203742D5000D0DFD /* HouseListTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0521BD29203742D5000D0DFD /* HouseListTableViewController.xib */; };
 		0526BBF62030DB36003E278C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0526BBF52030DB36003E278C /* AppDelegate.swift */; };
 		0526BBFD2030DB36003E278C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0526BBFC2030DB36003E278C /* Assets.xcassets */; };
 		0526BC002030DB36003E278C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0526BBFE2030DB36003E278C /* LaunchScreen.storyboard */; };
@@ -22,6 +24,8 @@
 		056D06BA20337C890051A23F /* UIViewController+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056D06B920337C890051A23F /* UIViewController+Additions.swift */; };
 		056D06BC203380800051A23F /* FactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056D06BB203380800051A23F /* FactoryTests.swift */; };
 		056D06BE2033816F0051A23F /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056D06BD2033816F0051A23F /* Repository.swift */; };
+		05C13A0A20362B8F00D63E08 /* WikiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C13A0820362B8F00D63E08 /* WikiViewController.swift */; };
+		05C13A0B20362B8F00D63E08 /* WikiViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05C13A0920362B8F00D63E08 /* WikiViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0521BD28203742D5000D0DFD /* HouseListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseListTableViewController.swift; sourceTree = "<group>"; };
+		0521BD29203742D5000D0DFD /* HouseListTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HouseListTableViewController.xib; sourceTree = "<group>"; };
 		0526BBF22030DB36003E278C /* Westeros.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Westeros.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0526BBF52030DB36003E278C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0526BBFC2030DB36003E278C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -54,6 +60,8 @@
 		056D06B920337C890051A23F /* UIViewController+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Additions.swift"; sourceTree = "<group>"; };
 		056D06BB203380800051A23F /* FactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactoryTests.swift; sourceTree = "<group>"; };
 		056D06BD2033816F0051A23F /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		05C13A0820362B8F00D63E08 /* WikiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiViewController.swift; sourceTree = "<group>"; };
+		05C13A0920362B8F00D63E08 /* WikiViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WikiViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +151,10 @@
 			children = (
 				0546FA1020323A8700E0F003 /* HouseDetailViewController.swift */,
 				0546FA1120323A8700E0F003 /* HouseDetailViewController.xib */,
+				05C13A0820362B8F00D63E08 /* WikiViewController.swift */,
+				05C13A0920362B8F00D63E08 /* WikiViewController.xib */,
+				0521BD28203742D5000D0DFD /* HouseListTableViewController.swift */,
+				0521BD29203742D5000D0DFD /* HouseListTableViewController.xib */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -239,7 +251,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0521BD2B203742D5000D0DFD /* HouseListTableViewController.xib in Resources */,
 				0546FA0C203238C000E0F003 /* codeIsComing.png in Resources */,
+				05C13A0B20362B8F00D63E08 /* WikiViewController.xib in Resources */,
 				0526BC002030DB36003E278C /* LaunchScreen.storyboard in Resources */,
 				0546FA1320323A8700E0F003 /* HouseDetailViewController.xib in Resources */,
 				0546FA0E203238C000E0F003 /* lannister.jpg in Resources */,
@@ -266,8 +280,10 @@
 				0526BC1D2030F5B5003E278C /* Person.swift in Sources */,
 				0526BC182030EE1F003E278C /* House.swift in Sources */,
 				056D06BA20337C890051A23F /* UIViewController+Additions.swift in Sources */,
+				0521BD2A203742D5000D0DFD /* HouseListTableViewController.swift in Sources */,
 				0526BBF62030DB36003E278C /* AppDelegate.swift in Sources */,
 				056D06BE2033816F0051A23F /* Repository.swift in Sources */,
+				05C13A0A20362B8F00D63E08 /* WikiViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

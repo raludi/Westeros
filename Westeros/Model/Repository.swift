@@ -8,14 +8,18 @@
 
 import Foundation
 
+typealias Filter = (House) -> Bool
+
 final class Repository {
     static let local = LocalFactory()
     //static let remote
 }
+
 //Acordarse de poner protocolos buenas practicas
 protocol HouseFactory {
     var houses: [House] { get }
     func house(named: String) -> House?
+    func houses(filteredBy: Filter) -> [House]
 }
 
 final class LocalFactory: HouseFactory {
@@ -26,9 +30,12 @@ final class LocalFactory: HouseFactory {
         let lannisterSigil = Sigil(image: #imageLiteral(resourceName: "lannister.jpg"), description: "Lion")
         let targaryenSigil = Sigil(image: #imageLiteral(resourceName: "targaryenSmall.jpg"), description: "Drake")
         
-        let starkHouse = House(name: "Stark", sigil: starkSigil, words: "Winter is coming")
-        let lannisterHouse = House(name: "Lannister", sigil: lannisterSigil, words: "Hear my roar")
-        let targaryenHouse = House(name: "Targaryen", sigil: targaryenSigil, words: "Fire and blood")
+        let starkHouse = House(name: "Stark", sigil: starkSigil, words: "Winter is coming",
+                                url: URL(string: "https://awoiaf.westeros.org/index.php/House_Stark")!)
+        let lannisterHouse = House(name: "Lannister", sigil: lannisterSigil, words: "Hear my roar",
+                                url: URL(string: "https://awoiaf.westeros.org/index.php/House_Lannister")!)
+        let targaryenHouse = House(name: "Targaryen", sigil: targaryenSigil, words: "Fire and blood",
+                                url: URL(string: "https://awoiaf.westeros.org/index.php/House_Targaryen")!)
         
         let robb = Person(name: "Robb", alias: "Young Wolf", house: starkHouse)
         let arya = Person(name: "Arya", house: starkHouse)
@@ -37,10 +44,8 @@ final class LocalFactory: HouseFactory {
         
         let dani = Person(name: "Daenerys", alias: "Mother of dragons", house: targaryenHouse)
         
-        starkHouse.add(person: arya)
-        starkHouse.add(person: robb)
-        lannisterHouse.add(person: tyrion)
-        lannisterHouse.add(person: cercei)
+        starkHouse.add(persons: arya, robb)
+        lannisterHouse.add(persons: tyrion, cercei)
         targaryenHouse.add(person: dani)
         
         return [starkHouse, lannisterHouse, targaryenHouse].sorted()
@@ -50,6 +55,11 @@ final class LocalFactory: HouseFactory {
         let house = houses.filter({ $0.name.uppercased() == name.uppercased() }).first
         return house
     }
+    
+    func houses(filteredBy: Filter) -> [House] {
+        return houses.filter(filteredBy)
+    }
+    
 }
 
 

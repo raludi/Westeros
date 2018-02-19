@@ -39,19 +39,28 @@ extension Person {
 
 // MARK: - Proxy
 extension Person {
-    var proxy: String {
+    var proxyEquality: String {
         return "\(name) \(alias) \(house.name)"
+    }
+    var proxyComparison: String {
+        return fullName
     }
 }
 // MARK: - Hashable
 extension Person: Hashable {
     var hashValue: Int {
-        return proxy.hashValue//Patrón proxy
+        return proxyEquality.hashValue//Patrón proxy
     }
 }
 // MARK: - Equatable
 extension Person: Equatable {
     static func ==(lhs: Person, rhs: Person) -> Bool {
-        return lhs.proxy == rhs.proxy
+        return lhs.proxyEquality == rhs.proxyEquality
+    }
+}
+// MARK: - Comparable
+extension Person: Comparable {
+    static func <(lhs: Person, rhs: Person) -> Bool {
+        return lhs.proxyComparison < rhs.proxyComparison
     }
 }

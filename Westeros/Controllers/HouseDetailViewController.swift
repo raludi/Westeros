@@ -33,15 +33,12 @@ class HouseDetailViewController: UIViewController {
     
     //Hay muchas más funciones mirar -> ciclo vida de un controller
     // MARK: - Lyfe Cicle
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        //syncModelWithView()
-    }
-   
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        setupUI()
         syncModelWithView()
     }
+    
     // MARK: - Sync
     func syncModelWithView() {
         houseNameLabel.text = "House \(model.name)"
@@ -49,4 +46,22 @@ class HouseDetailViewController: UIViewController {
         wordsLabel.text = model.words
       //title = model.name //Todos los UIViewController tienen un title
     }
+    
+    // MARK: - UI
+    func setupUI() {
+        let wikiButton = UIBarButtonItem(title: "Wiki", style: .plain, target: self, action: #selector(displayWiki))
+        //target en que clase busco y action la acción a buscar
+        navigationItem.rightBarButtonItem = wikiButton
+    }
+    
+    @objc func displayWiki() {
+        //Creamos el WikiVC
+        let wikiViewController =  WikiViewController(model: model)
+        //Hacemos push
+        navigationController?.pushViewController(wikiViewController, animated: true)
+    }
 }
+
+
+
+

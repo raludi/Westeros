@@ -26,8 +26,10 @@ class PersonTests: XCTestCase {
         starkSigil = Sigil(image: UIImage(), description: "Lobo")
         lannisterSigil = Sigil(image: UIImage(), description: "León")
         
-        starkHouse = House(name: "Stark", sigil: starkSigil, words: "Winter is coming")
-        lannisterHouse = House(name: "Lannister", sigil: lannisterSigil, words: "Oye mi rugido")
+        starkHouse = House(name: "Stark", sigil: starkSigil, words: "Winter is coming",
+                           url: URL(string: "http://awoiaf.westeros.org/index.php/House_Stark")!)
+        lannisterHouse = House(name: "Lannister", sigil: lannisterSigil, words: "Hear my roar",
+                               url: URL(string: "http://awoiaf.westeros.org/index.php/House_Lannister")!)
         
         robb = Person(name: "Robb", alias: "El joven lobo", house: starkHouse)
         arya = Person(name: "Arya", house: starkHouse)
