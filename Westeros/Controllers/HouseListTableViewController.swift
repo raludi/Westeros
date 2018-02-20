@@ -8,11 +8,18 @@
 
 import UIKit
 
+let HOUSE_DID_CHANGE_NOTIFICATION_NAME = "HouseDidChange"
+let HOUSE_KEY = "HouseKey"
+
+protocol HouseListViewControllerDelegate {
+    func houseListViewController(_ vc: HouseListTableViewController, didSelectHouse house: House)
+}
+
 class HouseListTableViewController: UITableViewController {
-    
     
     // MARK: - Properties
     let model: [House]
+    var delegate: HouseListViewControllerDelegate? //Al ponerle opcional no hace falta init
     
     init(model: [House]) {
         self.model = model
@@ -30,11 +37,9 @@ class HouseListTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return model.count
     }
 
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellId = "HouseCell"
         //Que casa mostramos
@@ -56,9 +61,18 @@ class HouseListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //Averiguar que casa se pulsa
         let house = model[indexPath.row]
+        /*
         //Crear un controlador de detalles
         let houseDetailViewController = HouseDetailViewController(model: house)
         //Hacer un push
         navigationController?.pushViewController(houseDetailViewController, animated: true)
+        */
+        delegate?.houseListViewController(self, didSelectHouse: house)
+        
+        //Solo puede tener un delegado aunque se le pueda llamar desde más sitios
+        //Si queremos que se entere más gente usamos notificaciones
+        let notificationCenter = NotificationCenter.default
+        let notification = Notification(name: Notification.Name(HOUSE_DID_CHANGE_NOTIFICATION_NAME), object: self, userInfo: [HOUSE_KEY: house])
+        notificationCenter.post(notification)
     }
 }

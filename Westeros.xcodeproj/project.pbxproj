@@ -16,6 +16,8 @@
 		0526BC182030EE1F003E278C /* House.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0526BC172030EE1F003E278C /* House.swift */; };
 		0526BC1B2030F548003E278C /* PersonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0526BC1A2030F548003E278C /* PersonTests.swift */; };
 		0526BC1D2030F5B5003E278C /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0526BC1C2030F5B5003E278C /* Person.swift */; };
+		05356FC1203B68BE00DD5902 /* MemberListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05356FBF203B68BE00DD5902 /* MemberListViewController.swift */; };
+		05356FC2203B68BE00DD5902 /* MemberListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05356FC0203B68BE00DD5902 /* MemberListViewController.xib */; };
 		0546FA0C203238C000E0F003 /* codeIsComing.png in Resources */ = {isa = PBXBuildFile; fileRef = 0546FA09203238C000E0F003 /* codeIsComing.png */; };
 		0546FA0D203238C000E0F003 /* targaryenSmall.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0546FA0A203238C000E0F003 /* targaryenSmall.jpg */; };
 		0546FA0E203238C000E0F003 /* lannister.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0546FA0B203238C000E0F003 /* lannister.jpg */; };
@@ -52,6 +54,8 @@
 		0526BC172030EE1F003E278C /* House.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = House.swift; sourceTree = "<group>"; };
 		0526BC1A2030F548003E278C /* PersonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonTests.swift; sourceTree = "<group>"; };
 		0526BC1C2030F5B5003E278C /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		05356FBF203B68BE00DD5902 /* MemberListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberListViewController.swift; sourceTree = "<group>"; };
+		05356FC0203B68BE00DD5902 /* MemberListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemberListViewController.xib; sourceTree = "<group>"; };
 		0546FA09203238C000E0F003 /* codeIsComing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = codeIsComing.png; sourceTree = "<group>"; };
 		0546FA0A203238C000E0F003 /* targaryenSmall.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = targaryenSmall.jpg; sourceTree = "<group>"; };
 		0546FA0B203238C000E0F003 /* lannister.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lannister.jpg; sourceTree = "<group>"; };
@@ -155,6 +159,8 @@
 				05C13A0920362B8F00D63E08 /* WikiViewController.xib */,
 				0521BD28203742D5000D0DFD /* HouseListTableViewController.swift */,
 				0521BD29203742D5000D0DFD /* HouseListTableViewController.xib */,
+				05356FBF203B68BE00DD5902 /* MemberListViewController.swift */,
+				05356FC0203B68BE00DD5902 /* MemberListViewController.xib */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -255,6 +261,7 @@
 				0546FA0C203238C000E0F003 /* codeIsComing.png in Resources */,
 				05C13A0B20362B8F00D63E08 /* WikiViewController.xib in Resources */,
 				0526BC002030DB36003E278C /* LaunchScreen.storyboard in Resources */,
+				05356FC2203B68BE00DD5902 /* MemberListViewController.xib in Resources */,
 				0546FA1320323A8700E0F003 /* HouseDetailViewController.xib in Resources */,
 				0546FA0E203238C000E0F003 /* lannister.jpg in Resources */,
 				0526BBFD2030DB36003E278C /* Assets.xcassets in Resources */,
@@ -284,6 +291,7 @@
 				0526BBF62030DB36003E278C /* AppDelegate.swift in Sources */,
 				056D06BE2033816F0051A23F /* Repository.swift in Sources */,
 				05C13A0A20362B8F00D63E08 /* WikiViewController.swift in Sources */,
+				05356FC1203B68BE00DD5902 /* MemberListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

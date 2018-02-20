@@ -16,7 +16,7 @@ class HouseDetailViewController: UIViewController {
     @IBOutlet weak var wordsLabel: UILabel!
     
     // MARK: - Properties
-    let model: House
+    var model: House
     
     // MARK: - Initialization
     init(model: House) {
@@ -51,7 +51,8 @@ class HouseDetailViewController: UIViewController {
     func setupUI() {
         let wikiButton = UIBarButtonItem(title: "Wiki", style: .plain, target: self, action: #selector(displayWiki))
         //target en que clase busco y action la acción a buscar
-        navigationItem.rightBarButtonItem = wikiButton
+        let membersButton = UIBarButtonItem(title: "Members", style: .plain, target: self, action: #selector(displayMembers))
+        navigationItem.rightBarButtonItems = [wikiButton,membersButton]
     }
     
     @objc func displayWiki() {
@@ -60,8 +61,21 @@ class HouseDetailViewController: UIViewController {
         //Hacemos push
         navigationController?.pushViewController(wikiViewController, animated: true)
     }
-}
+    
+    @objc func displayMembers() {
+        let memberListViewController = MemberListViewController(model: model.sortedMember)
+        navigationController?.pushViewController(memberListViewController, animated: true)
+    }
 
+}
+//Solo puede tener un delegado aunque se le pueda llamar desde más sitios
+//Si queremos que se entere más gente usamos notificaciones
+extension HouseDetailViewController: HouseListViewControllerDelegate {
+    func houseListViewController(_ vc: HouseListTableViewController, didSelectHouse house: House) {
+        self.model = house
+        syncModelWithView()
+    }
+}
 
 
 
