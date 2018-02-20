@@ -68,6 +68,7 @@ class WikiViewController: UIViewController {
         guard let model = house else { return }//En caso no sea nil model vale eso si no return
         self.model = model
         //Sincronizar la vista
+        //self.navigationController?.popViewController(animated: true)
         syncModelWithView()
     }
 }

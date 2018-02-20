@@ -40,7 +40,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //Controladores (Master y Detail)
         let houseListViewController = HouseListTableViewController(model:houses)
-        let houseDetailViewController = HouseDetailViewController(model: houses.first!)
+        
+        let lastSelectedHouse = houseListViewController.lastSelectedHouse()
+        let houseDetailViewController = HouseDetailViewController(model: lastSelectedHouse)
         
         //Asignamos delegados
         houseListViewController.delegate = houseDetailViewController
