@@ -8,7 +8,7 @@
 
 import UIKit
 
-typealias Episodes = [Episode]
+typealias Episodes = Set<Episode>
 
 final class Season {
     let name: String
@@ -34,7 +34,7 @@ extension Season {
         guard newEpisode.issueDate > self.releaseDate else {
              return
         }
-        _episodes.append(newEpisode)
+        _episodes.insert(newEpisode)
     }
     func add(newEpisodes: Episode...) {
         newEpisodes.forEach( { add(newEpisode: $0) })

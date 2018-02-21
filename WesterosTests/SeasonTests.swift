@@ -56,8 +56,7 @@ class SeasonTests: XCTestCase {
         XCTAssertEqual(season2.countEpisodes, 0)
         season2.add(newEpisode: chapter3)
         XCTAssertEqual(season2.countEpisodes, 1)
-        
-        season3 = Season(name: "Season 3", releaseDate: givingDateFormatted(date: "17/04/2005"),episodes: chapter1, chapter2, chapter3)
+
     }
     
 }
