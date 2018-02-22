@@ -58,7 +58,6 @@ extension MemberListViewController: UITableViewDataSource {
 //MARK: - UITableViewDelegate
 extension MemberListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let member = model[indexPath.row]
         
     }
 }

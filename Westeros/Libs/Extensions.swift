@@ -14,3 +14,4 @@ func givingDateFormatted(date: String) -> Date {
     dateFormatter.timeZone = TimeZone(abbreviation: "GMT+0:00")
     return dateFormatter.date(from: date)!
 }
+

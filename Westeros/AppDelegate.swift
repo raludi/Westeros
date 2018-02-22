@@ -22,14 +22,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //Creamos modelos
         let houses = Repository.local.houses
-        
+        let seasons = Repository.local.seasons
         //Creamos controladores
         /*var controllers = [UIViewController]()
         for each in houses {
             controllers.append(HouseDetailViewController(model: each).wrappedInNavigation())
         }*/
         //Esto es funcional
-        let controllers = houses
+        /*let controllers = houses
             .map({ element in
             return HouseDetailViewController(model: element)})
             .map({ $0.wrappedInNavigation() })
@@ -53,7 +53,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                                houseDetailViewController.wrappedInNavigation()]
         //Asignamos el rootVC
         window?.rootViewController = splitViewController
+        */
+        let seasonListViewController = SeasonListViewController(model: seasons)
+        let houseListViewController = HouseListTableViewController(model:houses)
+        let tabBarViewController = UITabBarController()
         
+        /*let lastSelectedHouse = houseListViewController.lastSelectedHouse()
+        let houseDetailViewController = HouseDetailViewController(model: lastSelectedHouse)
+        houseListViewController.delegate = houseDetailViewController*/
+        
+        tabBarViewController.viewControllers = [houseListViewController.wrappedInNavigation(),
+                                                seasonListViewController.wrappedInNavigation()]
+        window?.rootViewController = tabBarViewController
         return true
     }
 

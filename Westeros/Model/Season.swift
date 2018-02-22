@@ -31,7 +31,7 @@ extension Season {
     }
     func add(newEpisode: Episode) {
        
-        guard newEpisode.issueDate > self.releaseDate else {
+        guard self.releaseDate <= newEpisode.issueDate else {
              return
         }
         _episodes.insert(newEpisode)

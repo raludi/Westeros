@@ -23,7 +23,7 @@ final class Episode {
     }
     
     convenience init(title: String, issueDate: Date, season: Season) {
-        self.init(title: title, issueDate: issueDate, summary: "", season: season)
+        self.init(title: title, issueDate: issueDate, summary: "Esto es el resumen", season: season)
     }
 }
 

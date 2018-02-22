@@ -25,7 +25,7 @@ class HouseListTableViewController: UITableViewController {
     init(model: [House]) {
         self.model = model
         super.init(style: .plain)
-        title = "Westeros"
+        title = "Houses"
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -78,6 +78,7 @@ class HouseListTableViewController: UITableViewController {
         
         //Guardar coordenadas (section, row) de la ultima casa seleccionada
         saveLastSelectedHouse(at: indexPath.row)
+        self.navigationController?.pushViewController(HouseDetailViewController(model: house), animated: true)
     }
 }
 

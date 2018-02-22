@@ -23,6 +23,12 @@
 		0526BC1D2030F5B5003E278C /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0526BC1C2030F5B5003E278C /* Person.swift */; };
 		05356FC1203B68BE00DD5902 /* MemberListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05356FBF203B68BE00DD5902 /* MemberListViewController.swift */; };
 		05356FC2203B68BE00DD5902 /* MemberListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05356FC0203B68BE00DD5902 /* MemberListViewController.xib */; };
+		0540B1A4203F4F2E0023735F /* SeasonListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0540B1A2203F4F2E0023735F /* SeasonListViewController.swift */; };
+		0540B1A5203F4F2E0023735F /* SeasonListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0540B1A3203F4F2E0023735F /* SeasonListViewController.xib */; };
+		0540B1A8203F53A80023735F /* EpisodeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0540B1A6203F53A80023735F /* EpisodeListViewController.swift */; };
+		0540B1A9203F53A80023735F /* EpisodeListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0540B1A7203F53A80023735F /* EpisodeListViewController.xib */; };
+		0540B1AC203F55330023735F /* EpisodeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0540B1AA203F55330023735F /* EpisodeDetailViewController.swift */; };
+		0540B1AD203F55330023735F /* EpisodeDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0540B1AB203F55330023735F /* EpisodeDetailViewController.xib */; };
 		0546FA0C203238C000E0F003 /* codeIsComing.png in Resources */ = {isa = PBXBuildFile; fileRef = 0546FA09203238C000E0F003 /* codeIsComing.png */; };
 		0546FA0D203238C000E0F003 /* targaryenSmall.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0546FA0A203238C000E0F003 /* targaryenSmall.jpg */; };
 		0546FA0E203238C000E0F003 /* lannister.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0546FA0B203238C000E0F003 /* lannister.jpg */; };
@@ -66,6 +72,12 @@
 		0526BC1C2030F5B5003E278C /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		05356FBF203B68BE00DD5902 /* MemberListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberListViewController.swift; sourceTree = "<group>"; };
 		05356FC0203B68BE00DD5902 /* MemberListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemberListViewController.xib; sourceTree = "<group>"; };
+		0540B1A2203F4F2E0023735F /* SeasonListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonListViewController.swift; sourceTree = "<group>"; };
+		0540B1A3203F4F2E0023735F /* SeasonListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SeasonListViewController.xib; sourceTree = "<group>"; };
+		0540B1A6203F53A80023735F /* EpisodeListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeListViewController.swift; sourceTree = "<group>"; };
+		0540B1A7203F53A80023735F /* EpisodeListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EpisodeListViewController.xib; sourceTree = "<group>"; };
+		0540B1AA203F55330023735F /* EpisodeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailViewController.swift; sourceTree = "<group>"; };
+		0540B1AB203F55330023735F /* EpisodeDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EpisodeDetailViewController.xib; sourceTree = "<group>"; };
 		0546FA09203238C000E0F003 /* codeIsComing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = codeIsComing.png; sourceTree = "<group>"; };
 		0546FA0A203238C000E0F003 /* targaryenSmall.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = targaryenSmall.jpg; sourceTree = "<group>"; };
 		0546FA0B203238C000E0F003 /* lannister.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lannister.jpg; sourceTree = "<group>"; };
@@ -184,6 +196,12 @@
 				0521BD29203742D5000D0DFD /* HouseListTableViewController.xib */,
 				05356FBF203B68BE00DD5902 /* MemberListViewController.swift */,
 				05356FC0203B68BE00DD5902 /* MemberListViewController.xib */,
+				0540B1A2203F4F2E0023735F /* SeasonListViewController.swift */,
+				0540B1A3203F4F2E0023735F /* SeasonListViewController.xib */,
+				0540B1A6203F53A80023735F /* EpisodeListViewController.swift */,
+				0540B1A7203F53A80023735F /* EpisodeListViewController.xib */,
+				0540B1AA203F55330023735F /* EpisodeDetailViewController.swift */,
+				0540B1AB203F55330023735F /* EpisodeDetailViewController.xib */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -284,11 +302,14 @@
 				0546FA0C203238C000E0F003 /* codeIsComing.png in Resources */,
 				05C13A0B20362B8F00D63E08 /* WikiViewController.xib in Resources */,
 				0526BC002030DB36003E278C /* LaunchScreen.storyboard in Resources */,
+				0540B1A9203F53A80023735F /* EpisodeListViewController.xib in Resources */,
 				05356FC2203B68BE00DD5902 /* MemberListViewController.xib in Resources */,
+				0540B1A5203F4F2E0023735F /* SeasonListViewController.xib in Resources */,
 				0546FA1320323A8700E0F003 /* HouseDetailViewController.xib in Resources */,
 				0546FA0E203238C000E0F003 /* lannister.jpg in Resources */,
 				0526BBFD2030DB36003E278C /* Assets.xcassets in Resources */,
 				0546FA0D203238C000E0F003 /* targaryenSmall.jpg in Resources */,
+				0540B1AD203F55330023735F /* EpisodeDetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,9 +335,12 @@
 				051CC873203DFE910087C0A5 /* Season.swift in Sources */,
 				0521BD2A203742D5000D0DFD /* HouseListTableViewController.swift in Sources */,
 				051CC876203E06EC0087C0A5 /* Extensions.swift in Sources */,
+				0540B1A8203F53A80023735F /* EpisodeListViewController.swift in Sources */,
 				0526BBF62030DB36003E278C /* AppDelegate.swift in Sources */,
+				0540B1AC203F55330023735F /* EpisodeDetailViewController.swift in Sources */,
 				056D06BE2033816F0051A23F /* Repository.swift in Sources */,
 				05C13A0A20362B8F00D63E08 /* WikiViewController.swift in Sources */,
+				0540B1A4203F4F2E0023735F /* SeasonListViewController.swift in Sources */,
 				05356FC1203B68BE00DD5902 /* MemberListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
