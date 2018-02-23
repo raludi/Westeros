@@ -37,6 +37,15 @@ class HouseDetailViewController: UIViewController {
         super.viewWillAppear(animated)
         setupUI()
         syncModelWithView()
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(houseDidChange), name: Notification.Name(HOUSE_DID_CHANGE_NOTIFICATION_NAME), object: nil)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        //Baja notificaciones
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.removeObserver(self)
     }
     
     // MARK: - Sync
@@ -65,6 +74,21 @@ class HouseDetailViewController: UIViewController {
     @objc func displayMembers() {
         let memberListViewController = MemberListViewController(model: model.sortedMember)
         navigationController?.pushViewController(memberListViewController, animated: true)
+    }
+    
+    @objc func houseDidChange(notification: Notification) {
+        // Extraer userInfo de la notificación
+        guard let info = notification.userInfo else {
+            return
+        }
+        // Sacar la casa del user info
+        let house = info[HOUSE_KEY] as? House //as es un casting de java
+        //Actualizar el modelo
+        guard let model = house else { return }//En caso no sea nil model vale eso si no return
+        self.model = model
+        //Sincronizar la vista
+        //self.navigationController?.popViewController(animated: true)
+        syncModelWithView()
     }
 
 }

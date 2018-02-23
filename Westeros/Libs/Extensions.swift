@@ -15,3 +15,5 @@ func givingDateFormatted(date: String) -> Date {
     return dateFormatter.date(from: date)!
 }
 
+
+

@@ -8,6 +8,9 @@
 
 import UIKit
 
+let SEASON_DID_CHANGE_NOTIFICATION_NAME = "SeasonChanged"
+let SEASON_KEY = "SeasonKey"
+let LAST_SEASON = "LastSeason"
 class SeasonListViewController: UITableViewController {
     
     let model: [Season]
@@ -46,14 +49,36 @@ class SeasonListViewController: UITableViewController {
         let season = model[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId)
             ?? UITableViewCell(style: .default, reuseIdentifier: cellId)
-        cell.textLabel?.text = season.name
+        cell.textLabel?.text = "\(season.name) - \(season.countEpisodes) episodes"
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let season = model[indexPath.row]
-        navigationController?.pushViewController(EpisodeListViewController(model: season.sortedEpisodes), animated: true)
+        //navigationController?.pushViewController(EpisodeListViewController(model: season.sortedEpisodes), animated: true)
+        let notificationCenter = NotificationCenter.default
+        let notification = Notification(name: Notification.Name(SEASON_DID_CHANGE_NOTIFICATION_NAME), object: self, userInfo: [SEASON_KEY: season])
+        notificationCenter.post(notification)
+        saveLastSelectedSeason(at: indexPath.row)
     }
     
+}
+extension SeasonListViewController {
+    
+    func saveLastSelectedSeason(at index: Int) {
+        let defaults = UserDefaults.standard
+        defaults.set(index, forKey: LAST_SEASON)
+        //Por si las moscas
+        defaults.synchronize()//Te aseguras de que se guarde si o si
+    }
+    
+    func lastSelectedSeason() -> Season { //Si no encuentra devuelve un 0
+        // Extraer la row del User Defaults
+        let row = UserDefaults.standard.integer(forKey: LAST_SEASON)
+        //Averiguar la casa de ese row
+        let season = model[row]
+        //Devolverla
+        return season
+    }
 }
 

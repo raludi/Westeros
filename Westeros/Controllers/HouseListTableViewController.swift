@@ -31,7 +31,7 @@ class HouseListTableViewController: UITableViewController {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -68,7 +68,7 @@ class HouseListTableViewController: UITableViewController {
         //Hacer un push
         navigationController?.pushViewController(houseDetailViewController, animated: true)
         */
-        delegate?.houseListViewController(self, didSelectHouse: house)
+        //delegate?.houseListViewController(self, didSelectHouse: house)
         
         //Solo puede tener un delegado aunque se le pueda llamar desde más sitios
         //Si queremos que se entere más gente usamos notificaciones
@@ -78,7 +78,6 @@ class HouseListTableViewController: UITableViewController {
         
         //Guardar coordenadas (section, row) de la ultima casa seleccionada
         saveLastSelectedHouse(at: indexPath.row)
-        self.navigationController?.pushViewController(HouseDetailViewController(model: house), animated: true)
     }
 }
 
@@ -100,3 +99,5 @@ extension HouseListTableViewController {
         return house
     }
 }
+
+
