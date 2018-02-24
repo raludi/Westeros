@@ -80,10 +80,8 @@ class EpisodeListViewController: UITableViewController {
         let season = info[SEASON_KEY] as? Season //as es un casting de java
         //Actualizar el modelo
         guard let model = season else { return }//En caso no sea nil model vale eso si no return
-        //self.model = model
-        //Sincronizar la vista
-        //self.navigationController?.popViewController(animated: true)
-        splitViewController?.showDetailViewController(SesaonDetailViewController(model: model).wrappedInNavigation(), sender: nil)
+        self.model = model.sortedEpisodes
+        tableView.reloadData()
     }
     
 }

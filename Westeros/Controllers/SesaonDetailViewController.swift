@@ -22,6 +22,7 @@ class SesaonDetailViewController: UIViewController {
     init(model: Season) {
         self.model = model
         super.init(nibName: nil, bundle: nil)
+        title = "Season Detail"
     }
     
     required init?(coder aDecoder: NSCoder) {

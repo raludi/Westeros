@@ -49,7 +49,8 @@ class SeasonListViewController: UITableViewController {
         let season = model[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId)
             ?? UITableViewCell(style: .default, reuseIdentifier: cellId)
-        cell.textLabel?.text = "\(season.name) - \(season.countEpisodes) episodes"
+        cell.textLabel?.text = "\(season.name)"
+        cell.imageView?.image = season.image
         return cell
     }
     

@@ -13,7 +13,7 @@ class MemberListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     // MARK: - Properties
-    let model: [Person]
+    var model: [Person]
     
     // MARK: - Initialization
     init(model: [Person]) {
@@ -31,6 +31,33 @@ class MemberListViewController: UIViewController {
         tableView.delegate = self
         //Asignamos la fuente de datos
         tableView.dataSource = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        //Alta notificaciones
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(houseDidChange), name: Notification.Name(HOUSE_DID_CHANGE_NOTIFICATION_NAME), object: nil)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        //Baja notificaciones
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.removeObserver(self)
+    }
+    
+    @objc func houseDidChange(notification: Notification) {
+        // Extraer userInfo de la notificación
+        guard let info = notification.userInfo else {
+            return
+        }
+        // Sacar la casa del user info
+        let house = info[HOUSE_KEY] as? House //as es un casting de java
+        //Actualizar el modelo
+        guard let model = house else { return }//En caso no sea nil model vale eso si no return
+        self.model = model.sortedMember
+        tableView.reloadData()
     }
 }
 
