@@ -66,13 +66,13 @@ final class LocalFactory: HouseFactory, SeasonFactory {
     }
     
     var seasons: [Season] {
-        let season1 = Season(name: "Season 1", releaseDate: givingDateFormatted(date: "17/04/2011"))
-        let season2 = Season(name: "Season 2", releaseDate: givingDateFormatted(date: "01/04/2012"))
-        let season3 = Season(name: "Season 3", releaseDate: givingDateFormatted(date: "31/03/2013"))
-        let season4 = Season(name: "Season 4", releaseDate: givingDateFormatted(date: "06/04/2014"))
-        let season5 = Season(name: "Season 5", releaseDate: givingDateFormatted(date: "12/04/2015"))
-        let season6 = Season(name: "Season 6", releaseDate: givingDateFormatted(date: "24/04/2016"))
-        let season7 = Season(name: "Season 7", releaseDate: givingDateFormatted(date: "16/07/2017"))
+        let season1 = Season(name: "Season 1", releaseDate: givingDateFormatted(date: "17/04/2011"), image: #imageLiteral(resourceName: "season1.jpeg"))
+        let season2 = Season(name: "Season 2", releaseDate: givingDateFormatted(date: "01/04/2012"), image: #imageLiteral(resourceName: "season2.jpg"))
+        let season3 = Season(name: "Season 3", releaseDate: givingDateFormatted(date: "31/03/2013"), image: #imageLiteral(resourceName: "season3.jpg"))
+        let season4 = Season(name: "Season 4", releaseDate: givingDateFormatted(date: "06/04/2014"), image: #imageLiteral(resourceName: "season4.jpg"))
+        let season5 = Season(name: "Season 5", releaseDate: givingDateFormatted(date: "12/04/2015"), image: #imageLiteral(resourceName: "season5.jpg"))
+        let season6 = Season(name: "Season 6", releaseDate: givingDateFormatted(date: "24/04/2016"), image: #imageLiteral(resourceName: "season6.jpg"))
+        let season7 = Season(name: "Season 7", releaseDate: givingDateFormatted(date: "16/07/2017"), image: #imageLiteral(resourceName: "season7.jpg"))
         //Season1
         let episode1 = Episode(title: "Winter Is Coming", issueDate: givingDateFormatted(date: "17/04/2011"), season: season1)
         let episode2 = Episode(title: "The Kingsroad", issueDate: givingDateFormatted(date: "24/04/2011"), season: season1)

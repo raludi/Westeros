@@ -30,7 +30,7 @@ class MasterViewController: UITabBarController {
         //let notificationCenter = NotificationCenter.default
         if item.title == "Seasons" {
             let season = SeasonListViewController(model: Repository.local.seasons).lastSelectedSeason()
-            showDetailViewController(EpisodeListViewController(model: season.sortedEpisodes).wrappedInNavigation() , sender: nil)
+            showDetailViewController(SesaonDetailViewController(model: season).wrappedInNavigation() , sender: nil)
             /*let notification = Notification(name: Notification.Name(TAB_BAR_CHANGED_TO_SEASONS), object: self, userInfo: [TAB_SEASON_KEY: Repository.local.seasons.first!])
             notificationCenter.post(notification)*/
         } else {
@@ -40,6 +40,7 @@ class MasterViewController: UITabBarController {
             notificationCenter.post(notification)*/
         }
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
