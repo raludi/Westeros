@@ -23,18 +23,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Creamos modelos
         let houses = Repository.local.houses
         let seasons = Repository.local.seasons
-        //Creamos controladores
+        //Listas
         let seasonListViewController = SeasonListViewController(model: seasons)
         let houseListViewController = HouseListTableViewController(model:houses)
-        let masterViewController = UITabBarController()
-        
+        //TABBAR
+        let masterViewController = MasterViewController()
+        houseListViewController.tabBarItem = UITabBarItem(title: "Houses", image: #imageLiteral(resourceName: "house-7.png"), tag: 0)
+        seasonListViewController.tabBarItem = UITabBarItem(title: "Seasons", image: #imageLiteral(resourceName: "video-player-7.png"), tag: 0)
         masterViewController.viewControllers = [houseListViewController,
                                                 seasonListViewController]
-        let splitViewController = UISplitViewController()
-        //let houseController = HouseDetailViewController(model: houses.first!)
+        //VC
         let lastSelectedHouse = houseListViewController.lastSelectedHouse()
         let houseController = HouseDetailViewController(model: lastSelectedHouse)
+        let lastSelectedSeason = seasonListViewController.lastSelectedSeason()
+        let seasonController = SesaonDetailViewController(model: lastSelectedSeason)
         houseListViewController.delegate = houseController
+        seasonListViewController.delegate = seasonController
+        //SPLITVC
+        let splitViewController = UISplitViewController()
+     
         
         splitViewController.viewControllers = [masterViewController.wrappedInNavigation(), houseController.wrappedInNavigation()]
         

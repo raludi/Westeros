@@ -29,6 +29,10 @@ class MasterViewController: UITabBarController {
         print("Hi")
         //let notificationCenter = NotificationCenter.default
         if item.title == "Seasons" {
+            let vcs = viewControllers
+            vcs?.forEach({ (vc) in
+                    print(vc)
+                })
             /*let season = SeasonListViewController(model: Repository.local.seasons).lastSelectedSeason()
             showDetailViewController(SesaonDetailViewController(model: season).wrappedInNavigation() , sender: nil)*/
             

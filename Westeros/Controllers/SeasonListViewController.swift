@@ -11,9 +11,15 @@ import UIKit
 let SEASON_DID_CHANGE_NOTIFICATION_NAME = "SeasonChanged"
 let SEASON_KEY = "SeasonKey"
 let LAST_SEASON = "LastSeason"
+
+protocol SeasonListViewControllerDelegate {
+    func seasonListViewController(_ vc: SeasonListViewController, didSelectSeason season: Season)
+}
+
 class SeasonListViewController: UITableViewController {
     
     let model: [Season]
+    var delegate: SeasonListViewControllerDelegate?
     
     init(model: [Season]) {
         self.model = model
@@ -25,6 +31,14 @@ class SeasonListViewController: UITableViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let season = SeasonListViewController(model: Repository.local.seasons).lastSelectedSeason()
+        let seasonVC = SesaonDetailViewController(model: season)
+        self.delegate = seasonVC
+        showDetailViewController(seasonVC.wrappedInNavigation(), sender: nil)
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -57,6 +71,7 @@ class SeasonListViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let season = model[indexPath.row]
         //navigationController?.pushViewController(EpisodeListViewController(model: season.sortedEpisodes), animated: true)
+        delegate?.seasonListViewController(self, didSelectSeason: season)
         let notificationCenter = NotificationCenter.default
         let notification = Notification(name: Notification.Name(SEASON_DID_CHANGE_NOTIFICATION_NAME), object: self, userInfo: [SEASON_KEY: season])
         notificationCenter.post(notification)

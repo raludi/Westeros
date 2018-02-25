@@ -80,6 +80,7 @@ class HouseListTableViewController: UITableViewController {
         //Guardar coordenadas (section, row) de la ultima casa seleccionada
         saveLastSelectedHouse(at: indexPath.row)
     }
+    
 }
 
 extension HouseListTableViewController {
@@ -98,6 +99,12 @@ extension HouseListTableViewController {
         let house = model[row]
         //Devolverla
         return house
+    }
+}
+
+extension HouseListTableViewController: UITabBarDelegate {
+    func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        print("I´m the delegate")
     }
 }
 
