@@ -34,7 +34,6 @@ class HouseListTableViewController: UITableViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print("Hi Im List Houses")
         let house =  HouseListTableViewController(model: Repository.local.houses).lastSelectedHouse()
         let houseVC = HouseDetailViewController(model: house)
         self.delegate = houseVC
@@ -101,11 +100,3 @@ extension HouseListTableViewController {
         return house
     }
 }
-
-extension HouseListTableViewController: UITabBarDelegate {
-    func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-        print("I´m the delegate")
-    }
-}
-
-

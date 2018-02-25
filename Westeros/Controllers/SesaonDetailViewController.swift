@@ -8,6 +8,9 @@
 
 import UIKit
 
+protocol SeasonDetailDelegate {
+    func seasonDetailView(_ vc: SesaonDetailViewController, didSelectSeason season: Season)
+}
 class SesaonDetailViewController: UIViewController {
     // MARK: - Oulets
     @IBOutlet weak var titleSeason: UILabel!
@@ -17,7 +20,7 @@ class SesaonDetailViewController: UIViewController {
     
     // MARK: - Properties
     var model: Season
-    
+    var delegate: SeasonDetailDelegate?
   
     init(model: Season) {
         self.model = model
@@ -66,6 +69,7 @@ class SesaonDetailViewController: UIViewController {
         //Creamos el WikiVC
         let episodesViewController =  EpisodeListViewController(model: model.sortedEpisodes)
         //Hacemos push
+        self.delegate = episodesViewController
         navigationController?.pushViewController(episodesViewController, animated: true)
     }
 }
@@ -73,6 +77,7 @@ class SesaonDetailViewController: UIViewController {
 extension SesaonDetailViewController: SeasonListViewControllerDelegate {
     func seasonListViewController(_ vc: SeasonListViewController, didSelectSeason season: Season) {
         self.model = season
+        delegate?.seasonDetailView(self, didSelectSeason: season)
         syncModelWithView()
     }
 }

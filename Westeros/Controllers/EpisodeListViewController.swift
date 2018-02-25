@@ -29,15 +29,15 @@ class EpisodeListViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         //Alta notificaciones
-        let notificationCenter = NotificationCenter.default
-        notificationCenter.addObserver(self, selector: #selector(seasonDidChange), name: Notification.Name(SEASON_DID_CHANGE_NOTIFICATION_NAME), object: nil)
+        /*let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(seasonDidChange), name: Notification.Name(SEASON_DID_CHANGE_NOTIFICATION_NAME), object: nil)*/
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         //Baja notificaciones
-        let notificationCenter = NotificationCenter.default
-        notificationCenter.removeObserver(self)
+        /*let notificationCenter = NotificationCenter.default
+        notificationCenter.removeObserver(self)*/
     }
     
     override func didReceiveMemoryWarning() {
@@ -71,7 +71,7 @@ class EpisodeListViewController: UITableViewController {
         //showDetailViewController(EpisodeDetailViewController(model: episode).wrappedInNavigation(), sender: nil)
     }
     
-    @objc func seasonDidChange(notification: Notification) {
+    /*@objc func seasonDidChange(notification: Notification) {
         // Extraer userInfo de la notificación
         guard let info = notification.userInfo else {
             return
@@ -82,9 +82,14 @@ class EpisodeListViewController: UITableViewController {
         guard let model = season else { return }//En caso no sea nil model vale eso si no return
         self.model = model.sortedEpisodes
         tableView.reloadData()
-    }
+    }*/
     
 }
 
-
+extension EpisodeListViewController: SeasonDetailDelegate {
+    func seasonDetailView(_ vc: SesaonDetailViewController, didSelectSeason season: Season) {
+        self.model = season.sortedEpisodes
+        tableView.reloadData()
+    }
+}
 

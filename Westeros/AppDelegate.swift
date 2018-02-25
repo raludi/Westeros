@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let seasonListViewController = SeasonListViewController(model: seasons)
         let houseListViewController = HouseListTableViewController(model:houses)
         //TABBAR
-        let masterViewController = MasterViewController()
+        let masterViewController = UITabBarController()
         houseListViewController.tabBarItem = UITabBarItem(title: "Houses", image: #imageLiteral(resourceName: "house-7.png"), tag: 0)
         seasonListViewController.tabBarItem = UITabBarItem(title: "Seasons", image: #imageLiteral(resourceName: "video-player-7.png"), tag: 0)
         masterViewController.viewControllers = [houseListViewController,

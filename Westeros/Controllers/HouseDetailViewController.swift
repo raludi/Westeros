@@ -8,6 +8,9 @@
 
 import UIKit
 
+protocol HouseDetailViewControllerDelegate {
+    func houseDetailViewControllerDelegate(_ vc: HouseDetailViewController, didSelectHouse house: House)
+}
 class HouseDetailViewController: UIViewController {
 
     // MARK: - Outlets
@@ -17,6 +20,7 @@ class HouseDetailViewController: UIViewController {
     
     // MARK: - Properties
     var model: House
+    var delegate : HouseDetailViewControllerDelegate?
     
     // MARK: - Initialization
     init(model: House) {
@@ -71,6 +75,7 @@ class HouseDetailViewController: UIViewController {
     
     @objc func displayMembers() {
         let memberListViewController = MemberListViewController(model: model.sortedMember)
+        self.delegate = memberListViewController
         navigationController?.pushViewController(memberListViewController, animated: true)
     }
 
@@ -80,6 +85,7 @@ class HouseDetailViewController: UIViewController {
 extension HouseDetailViewController: HouseListViewControllerDelegate {
     func houseListViewController(_ vc: HouseListTableViewController, didSelectHouse house: House) {
         self.model = house
+        delegate?.houseDetailViewControllerDelegate(self, didSelectHouse: house)
         syncModelWithView()
     }
 }
