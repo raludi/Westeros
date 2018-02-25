@@ -32,6 +32,14 @@ class HouseListTableViewController: UITableViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("Hi Im List Houses")
+        let house =  HouseListTableViewController(model: Repository.local.houses).lastSelectedHouse()
+        let houseVC = HouseDetailViewController(model: house)
+        self.delegate = houseVC
+        showDetailViewController(houseVC.wrappedInNavigation(), sender: nil)
+    }
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -62,20 +70,13 @@ class HouseListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //Averiguar que casa se pulsa
         let house = model[indexPath.row]
-        /*
         //Crear un controlador de detalles
-        let houseDetailViewController = HouseDetailViewController(model: house)
-        //Hacer un push
-        navigationController?.pushViewController(houseDetailViewController, animated: true)
-        */
-        //delegate?.houseListViewController(self, didSelectHouse: house)
-        
+        delegate?.houseListViewController(self, didSelectHouse: house)
         //Solo puede tener un delegado aunque se le pueda llamar desde más sitios
         //Si queremos que se entere más gente usamos notificaciones
         let notificationCenter = NotificationCenter.default
         let notification = Notification(name: Notification.Name(HOUSE_DID_CHANGE_NOTIFICATION_NAME), object: self, userInfo: [HOUSE_KEY: house])
         notificationCenter.post(notification)
-        
         //Guardar coordenadas (section, row) de la ultima casa seleccionada
         saveLastSelectedHouse(at: indexPath.row)
     }

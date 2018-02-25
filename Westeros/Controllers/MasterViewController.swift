@@ -29,15 +29,12 @@ class MasterViewController: UITabBarController {
         print("Hi")
         //let notificationCenter = NotificationCenter.default
         if item.title == "Seasons" {
-            let season = SeasonListViewController(model: Repository.local.seasons).lastSelectedSeason()
-            showDetailViewController(SesaonDetailViewController(model: season).wrappedInNavigation() , sender: nil)
-            /*let notification = Notification(name: Notification.Name(TAB_BAR_CHANGED_TO_SEASONS), object: self, userInfo: [TAB_SEASON_KEY: Repository.local.seasons.first!])
-            notificationCenter.post(notification)*/
+            /*let season = SeasonListViewController(model: Repository.local.seasons).lastSelectedSeason()
+            showDetailViewController(SesaonDetailViewController(model: season).wrappedInNavigation() , sender: nil)*/
+            
         } else {
-            let house = HouseListTableViewController(model: Repository.local.houses).lastSelectedHouse()
-            showDetailViewController(HouseDetailViewController(model: house).wrappedInNavigation(), sender: nil)
-            /*let notification = Notification(name: Notification.Name(TAB_BAR_CHANGED_TO_HOUSES), object: self, userInfo: [TAB_HOUSE_KEY: Repository.local.houses.first!])
-            notificationCenter.post(notification)*/
+            /*let house = HouseListTableViewController(model: Repository.local.houses).lastSelectedHouse()
+            showDetailViewController(HouseDetailViewController(model: house).wrappedInNavigation(), sender: nil)*/
         }
     }
     
