@@ -42,7 +42,6 @@
 		0540B1A9203F53A80023735F /* EpisodeListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0540B1A7203F53A80023735F /* EpisodeListViewController.xib */; };
 		0540B1AC203F55330023735F /* EpisodeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0540B1AA203F55330023735F /* EpisodeDetailViewController.swift */; };
 		0540B1AD203F55330023735F /* EpisodeDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0540B1AB203F55330023735F /* EpisodeDetailViewController.xib */; };
-		0540B1AF203F7DFF0023735F /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0540B1AE203F7DFF0023735F /* MasterViewController.swift */; };
 		0546FA0C203238C000E0F003 /* codeIsComing.png in Resources */ = {isa = PBXBuildFile; fileRef = 0546FA09203238C000E0F003 /* codeIsComing.png */; };
 		0546FA0D203238C000E0F003 /* targaryenSmall.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0546FA0A203238C000E0F003 /* targaryenSmall.jpg */; };
 		0546FA0E203238C000E0F003 /* lannister.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0546FA0B203238C000E0F003 /* lannister.jpg */; };
@@ -105,7 +104,6 @@
 		0540B1A7203F53A80023735F /* EpisodeListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EpisodeListViewController.xib; sourceTree = "<group>"; };
 		0540B1AA203F55330023735F /* EpisodeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailViewController.swift; sourceTree = "<group>"; };
 		0540B1AB203F55330023735F /* EpisodeDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EpisodeDetailViewController.xib; sourceTree = "<group>"; };
-		0540B1AE203F7DFF0023735F /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
 		0546FA09203238C000E0F003 /* codeIsComing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = codeIsComing.png; sourceTree = "<group>"; };
 		0546FA0A203238C000E0F003 /* targaryenSmall.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = targaryenSmall.jpg; sourceTree = "<group>"; };
 		0546FA0B203238C000E0F003 /* lannister.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lannister.jpg; sourceTree = "<group>"; };
@@ -136,12 +134,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		051CC874203E06CF0087C0A5 /* Libs */ = {
+		051CC874203E06CF0087C0A5 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
 				051CC875203E06EC0087C0A5 /* Extensions.swift */,
 			);
-			path = Libs;
+			path = Helper;
 			sourceTree = "<group>";
 		};
 		0526BBE92030DB36003E278C = {
@@ -169,7 +167,7 @@
 				0526BBFC2030DB36003E278C /* Assets.xcassets */,
 				0526BBFE2030DB36003E278C /* LaunchScreen.storyboard */,
 				0526BC012030DB36003E278C /* Info.plist */,
-				051CC874203E06CF0087C0A5 /* Libs */,
+				051CC874203E06CF0087C0A5 /* Helper */,
 				056D06B820337C1B0051A23F /* UIKitExtensions */,
 				0546FA1420323A9000E0F003 /* Controllers */,
 				0526BC192030F39C003E278C /* Model */,
@@ -243,7 +241,6 @@
 				0540B1A7203F53A80023735F /* EpisodeListViewController.xib */,
 				0540B1AA203F55330023735F /* EpisodeDetailViewController.swift */,
 				0540B1AB203F55330023735F /* EpisodeDetailViewController.xib */,
-				0540B1AE203F7DFF0023735F /* MasterViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -380,7 +377,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0540B1AF203F7DFF0023735F /* MasterViewController.swift in Sources */,
 				0546FA1220323A8700E0F003 /* HouseDetailViewController.swift in Sources */,
 				0526BC1D2030F5B5003E278C /* Person.swift in Sources */,
 				0526BC182030EE1F003E278C /* House.swift in Sources */,

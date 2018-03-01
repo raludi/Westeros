@@ -38,8 +38,6 @@ class MemberDetailViewController: UIViewController {
         syncModelWithView()
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self, selector: #selector(houseDidChange), name: Notification.Name(HOUSE_DID_CHANGE_NOTIFICATION_NAME), object: nil)
-       
-        
     }
     
     override func viewWillDisappear(_ animated: Bool) {

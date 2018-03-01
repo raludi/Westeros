@@ -13,7 +13,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         window = UIWindow(frame: UIScreen.main.bounds)
@@ -32,6 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         seasonListViewController.tabBarItem = UITabBarItem(title: "Seasons", image: #imageLiteral(resourceName: "video-player-7.png"), tag: 0)
         masterViewController.viewControllers = [houseListViewController,
                                                 seasonListViewController]
+        masterViewController.delegate = houseListViewController
         //VC
         let lastSelectedHouse = houseListViewController.lastSelectedHouse()
         let houseController = HouseDetailViewController(model: lastSelectedHouse)
@@ -48,25 +48,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = splitViewController
         return true
     }
-
-    func applicationWillResignActive(_ application: UIApplication) {
-    }
-
-    func applicationDidEnterBackground(_ application: UIApplication) {
-    }
-
-    func applicationWillEnterForeground(_ application: UIApplication) {
-    }
-
-    func applicationDidBecomeActive(_ application: UIApplication) {
-    }
-
-    func applicationWillTerminate(_ application: UIApplication) {
-        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-    }
-
-
 }
+
 
 
 

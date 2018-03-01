@@ -33,11 +33,11 @@ class HouseListTableViewController: UITableViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+       /* super.viewWillAppear(animated)
         let house =  HouseListTableViewController(model: Repository.local.houses).lastSelectedHouse()
         let houseVC = HouseDetailViewController(model: house)
         self.delegate = houseVC
-        showDetailViewController(houseVC.wrappedInNavigation(), sender: nil)
+        showDetailViewController(houseVC.wrappedInNavigation(), sender: nil)*/
     }
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -98,5 +98,23 @@ extension HouseListTableViewController {
         let house = model[row]
         //Devolverla
         return house
+    }
+}
+
+extension HouseListTableViewController: UITabBarControllerDelegate {
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        if viewController is HouseListTableViewController {
+            let house =  HouseListTableViewController(model: Repository.local.houses).lastSelectedHouse()
+            let houseVC = HouseDetailViewController(model: house)
+            self.delegate = houseVC
+            showDetailViewController(houseVC.wrappedInNavigation(), sender: nil)
+        }
+        if viewController is SeasonListViewController {
+            let season = SeasonListViewController(model: Repository.local.seasons).lastSelectedSeason()
+            let seasonVC = SesaonDetailViewController(model: season)
+            let list = viewController as! SeasonListViewController
+            list.delegate = seasonVC
+            showDetailViewController(seasonVC.wrappedInNavigation(), sender: nil)
+        }
     }
 }

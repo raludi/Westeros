@@ -24,11 +24,10 @@ class EpisodeDetailViewController: UIViewController {
         title = "Episode"
     }
     
-
-    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     // MARK: - Lyfe Cicle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

@@ -25,6 +25,7 @@ final class Season {
     
     convenience init(name: String, releaseDate: Date) {
         self.init(name: name, releaseDate: releaseDate,  image: UIImage())
+        self._episodes = Episodes()
     }
 }
 

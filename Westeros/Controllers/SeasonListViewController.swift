@@ -30,23 +30,6 @@ class SeasonListViewController: UITableViewController {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        let season = SeasonListViewController(model: Repository.local.seasons).lastSelectedSeason()
-        let seasonVC = SesaonDetailViewController(model: season)
-        self.delegate = seasonVC
-        showDetailViewController(seasonVC.wrappedInNavigation(), sender: nil)
-        
-    }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
