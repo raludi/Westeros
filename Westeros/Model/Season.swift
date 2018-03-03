@@ -82,5 +82,22 @@ extension Season: Comparable {
         return lhs.proxyComparison < rhs.proxyComparison
     }
 }
+
+extension Season: Decodable {
+    
+    enum mySeasonKeys: String, CodingKey {
+        case name = "name"
+        case releaseDate = "releaseDate"
+        case image = "image"
+    }
+    convenience init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: mySeasonKeys.self)
+        let name = try container.decode(String.self, forKey: .name)
+        let releaseDate = try container.decode(String.self, forKey: .releaseDate)
+        let image = try container.decode(String.self, forKey: .image)
+        
+        self.init(name: name, releaseDate: givingDateFormatted(date: releaseDate), image: UIImage(named: image)!)
+    }
+}
     
 

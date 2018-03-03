@@ -15,9 +15,8 @@ func givingDateFormatted(date: String) -> Date {
     return dateFormatter.date(from: date)!
 }
 
-enum seasonKey2: String {
+enum HousesName: String {
     case Stark, Targaryen, Lannister
 }
-
 
 

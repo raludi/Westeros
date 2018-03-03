@@ -34,6 +34,7 @@ final class LocalFactory: HouseFactory, SeasonFactory {
         let starkSigil = Sigil(image: #imageLiteral(resourceName: "codeIsComing.png"), description: "Wolf")
         let lannisterSigil = Sigil(image: #imageLiteral(resourceName: "lannister.jpg"), description: "Lion")
         let targaryenSigil = Sigil(image: #imageLiteral(resourceName: "targaryenSmall.jpg"), description: "Drake")
+        let tyrrelSigil = Sigil(image: #imageLiteral(resourceName: "tyrrel.jpg"), description: "Gold Flower")
         
         let starkHouse = House(name: "Stark", sigil: starkSigil, words: "Winter is coming",
                                 url: URL(string: "https://awoiaf.westeros.org/index.php/House_Stark")!)
@@ -41,23 +42,25 @@ final class LocalFactory: HouseFactory, SeasonFactory {
                                 url: URL(string: "https://awoiaf.westeros.org/index.php/House_Lannister")!)
         let targaryenHouse = House(name: "Targaryen", sigil: targaryenSigil, words: "Fire and blood",
                                 url: URL(string: "https://awoiaf.westeros.org/index.php/House_Targaryen")!)
+        let tyrrelHouse = House(name: "Tyrrel", sigil: tyrrelSigil, words: "Growing Strong", url: URL(string: "https://awoiaf.westeros.org/index.php/House_Tyrell")!)
         
-        let robb = Person(name: "Robb", alias: "Young Wolf", house: starkHouse)
-        let arya = Person(name: "Arya", house: starkHouse)
-        let tyrion = Person(name: "Tyrion", alias: "The dwarf", house: lannisterHouse)
-        let cercei = Person(name: "Cercei", house: lannisterHouse)
+        _ = Person(name: "Robb", alias: "Young Wolf", house: starkHouse)
+        _ = Person(name: "Arya", house: starkHouse)
+        _ = Person(name: "Tyrion", alias: "The dwarf", house: lannisterHouse)
+        _ = Person(name: "Cercei", house: lannisterHouse)
+        _ = Person(name: "Daenerys", alias: "Mother of dragons", house: targaryenHouse)
+        _ = Person(name: "Margaery Tyrell", house: tyrrelHouse)
         
-        let dani = Person(name: "Daenerys", alias: "Mother of dragons", house: targaryenHouse)
-        
-        starkHouse.add(persons: arya, robb)
-        lannisterHouse.add(persons: tyrion, cercei)
-        targaryenHouse.add(person: dani)
-        
-        return [starkHouse, lannisterHouse, targaryenHouse].sorted()
+        return [starkHouse, lannisterHouse, targaryenHouse, tyrrelHouse].sorted()
     }
     
     func house(named name: String) -> House? {
         let house = houses.filter({ $0.name.uppercased() == name.uppercased() }).first
+        return house
+    }
+    
+    func house(named name: HousesName) -> House? {
+        let house = houses.filter({ $0.name.uppercased() == name.rawValue.uppercased() }).first
         return house
     }
     
@@ -70,39 +73,45 @@ final class LocalFactory: HouseFactory, SeasonFactory {
         let season2 = Season(name: "Season 2", releaseDate: givingDateFormatted(date: "01/04/2012"), image: #imageLiteral(resourceName: "season2.jpg"))
         let season3 = Season(name: "Season 3", releaseDate: givingDateFormatted(date: "31/03/2013"), image: #imageLiteral(resourceName: "season3.jpg"))
         let season4 = Season(name: "Season 4", releaseDate: givingDateFormatted(date: "06/04/2014"), image: #imageLiteral(resourceName: "season4.jpg"))
-        let season5 = Season(name: "Season 5", releaseDate: givingDateFormatted(date: "12/04/2015"), image: #imageLiteral(resourceName: "season5.jpg"))
-        let season6 = Season(name: "Season 6", releaseDate: givingDateFormatted(date: "24/04/2016"), image: #imageLiteral(resourceName: "season6.jpg"))
+        let season5 = Season(name: "Season 5", releaseDate: givingDateFormatted(date: "12/04/2015"), image: #imageLiteral(resourceName: "season-5.jpg"))
+        let season6 = Season(name: "Season 6", releaseDate: givingDateFormatted(date: "24/04/2016"), image: #imageLiteral(resourceName: "season-6.jpg"))
         let season7 = Season(name: "Season 7", releaseDate: givingDateFormatted(date: "16/07/2017"), image: #imageLiteral(resourceName: "season7.jpg"))
         //Season1
-        let episode1 = Episode(title: "Winter Is Coming", issueDate: givingDateFormatted(date: "17/04/2011"), season: season1)
-        let episode2 = Episode(title: "The Kingsroad", issueDate: givingDateFormatted(date: "24/04/2011"), season: season1)
+        _ = Episode(title: "Winter Is Coming", issueDate: givingDateFormatted(date: "17/04/2011"), summary: "This is the summary of episode 1", season: season1)
+        _ = Episode(title: "The Kingsroad", issueDate: givingDateFormatted(date: "24/04/2011"), summary: "This is the summary of episode 2", season: season1)
         //Season2
-        let episode3 = Episode(title: "The North Remembers", issueDate: givingDateFormatted(date: "01/04/2012"), season: season2)
-        let episode4 = Episode(title: "The Night Lands", issueDate: givingDateFormatted(date: "08/04/2012"), season: season2)
+        _ = Episode(title: "The North Remembers", issueDate: givingDateFormatted(date: "01/04/2012"), summary: "This is the summary of episode 1", season: season2)
+        _ = Episode(title: "The Night Lands", issueDate: givingDateFormatted(date: "08/04/2012"), summary: "This is the summary of episode 2", season: season2)
         //Season3
-        let episode5 = Episode(title: "Valar Dohaeris", issueDate: givingDateFormatted(date: "31/03/2013"), season: season3)
-        let episode6 = Episode(title: "Dark Wings, Dark Words", issueDate: givingDateFormatted(date: "07/04/2013"), season: season3)
+        _ = Episode(title: "Valar Dohaeris", issueDate: givingDateFormatted(date: "31/03/2013"), summary: "This is the summary of episode 1", season: season3)
+        _ = Episode(title: "Dark Wings, Dark Words", issueDate: givingDateFormatted(date: "07/04/2013"), summary: "This is the summary of episode 2", season: season3)
         //Season4
-        let episode7 = Episode(title: "Two Swords", issueDate: givingDateFormatted(date: "06/04/2014"), season: season4)
-        let episode8 = Episode(title: "The Lion and the Rose", issueDate: givingDateFormatted(date: "13/04/2014"), season: season4)
+        _ = Episode(title: "Two Swords", issueDate: givingDateFormatted(date: "06/04/2014"), summary: "This is the summary of episode 1", season: season4)
+        _ = Episode(title: "The Lion and the Rose", issueDate: givingDateFormatted(date: "13/04/2014"), summary: "This is the summary of episode 2", season: season4)
         //Season5
-        let episode9 = Episode(title: "The Wars to Come", issueDate: givingDateFormatted(date: "12/04/2015"), season: season5)
-        let episode10 = Episode(title: "The House of Black and White", issueDate: givingDateFormatted(date: "19/04/2015"), season: season5)
+        _ = Episode(title: "The Wars to Come", issueDate: givingDateFormatted(date: "12/04/2015"), summary: "This is the summary of episode 1", season: season5)
+        _ = Episode(title: "The House of Black and White", issueDate: givingDateFormatted(date: "19/04/2015"), summary: "This is the summary of episode 2", season: season5)
         //Season6
-        let episode11 = Episode(title: "The Red Woman", issueDate: givingDateFormatted(date: "24/04/2016"), season: season6)
-        let episode12 = Episode(title: "Home", issueDate: givingDateFormatted(date: "01/05/2016"), season: season6)
+        _ = Episode(title: "The Red Woman", issueDate: givingDateFormatted(date: "24/04/2016"), summary: "This is the summary of episode 1", season: season6)
+        _ = Episode(title: "Home", issueDate: givingDateFormatted(date: "01/05/2016"), summary: "This is the summary of episode 2", season: season6)
         //Season7
-        let episode13 = Episode(title: "Dragonstone", issueDate: givingDateFormatted(date: "16/07/2017"), season: season7)
-        let episode14 = Episode(title: "Stormborn", issueDate: givingDateFormatted(date: "23/07/2017"), season: season7)
-        
-        season1.add(newEpisodes: episode1, episode2)
-        season2.add(newEpisodes: episode3, episode4)
-        season3.add(newEpisodes: episode5, episode6)
-        season4.add(newEpisodes: episode7, episode8)
-        season5.add(newEpisodes: episode9, episode10)
-        season6.add(newEpisodes: episode11, episode12)
-        season7.add(newEpisodes: episode13, episode14)
-       
+        _ = Episode(title: "Dragonstone", issueDate: givingDateFormatted(date: "16/07/2017"), summary: "This is the summary of episode 1", season: season7)
+        _ = Episode(title: "Stormborn", issueDate: givingDateFormatted(date: "23/07/2017"), summary: "This is the summary of episode 2", season: season7)
+
+        /*let data = episodeModel.data(using: .utf8)!
+         var seasons = [Season]()
+         do {
+             let jsonList = try JSONDecoder().decode([Episode].self, from: data)
+             jsonList.forEach({ episode in
+                 guard let season = episode.season else { return }
+                 seasons.append(season)
+                 print(seasons)
+             })
+             print(jsonList)
+         } catch {
+            print("Error -> \(error)")
+         }*/
+ 
         return [season1, season2, season3, season4, season5, season6, season7].sorted()
     }
     

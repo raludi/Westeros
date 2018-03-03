@@ -53,21 +53,14 @@ class HouseTests: XCTestCase {
     }
     
     func testAddPersons() {
-        XCTAssertEqual(starkHouse.countMembers, 0)        
-        starkHouse.add(person: robb)
-        XCTAssertEqual(starkHouse.countMembers, 1)
-        starkHouse.add(person: robb)
-        XCTAssertEqual(starkHouse.countMembers, 1)
-        starkHouse.add(person: arya)
-        XCTAssertEqual(starkHouse.countMembers, 2)
+     
         starkHouse.add(person: tyrion)
         XCTAssertEqual(starkHouse.countMembers, 2)
         
-        let jaime = Person(name: "Tyrion", alias: "The dwarf", house: lannisterHouse)
-        let cercei = Person(name: "Cercei", house: lannisterHouse)
-        
-        lannisterHouse.add(persons: cercei,jaime)
-        XCTAssertEqual(lannisterHouse.countMembers, 2)
+        _ = Person(name: "Tyrion", alias: "The dwarf", house: lannisterHouse)
+        _ = Person(name: "Cercei", house: lannisterHouse)
+
+        XCTAssertEqual(lannisterHouse.countMembers, 3)
     }
     
     func testHouseEquality() {
@@ -76,6 +69,8 @@ class HouseTests: XCTestCase {
         //Igualdad
         let winter = House(name: "Stark", sigil: starkSigil, words: "Winter is coming",
                            url: URL(string: "http://awoiaf.westeros.org/index.php/House_Stark")!)
+        _ = Person(name: "Robb", alias: "El joven lobo", house: winter)
+        _ = Person(name: "Arya", house: winter)
         XCTAssertEqual(winter, starkHouse)
         //Desigualdad
         XCTAssertNotEqual(starkHouse, lannisterHouse)
@@ -90,7 +85,7 @@ class HouseTests: XCTestCase {
     }
     
     func testHouseReturnsSortedArrayOfMembers() {
-        starkHouse.add(persons: robb, arya)
+        //starkHouse.add(persons: robb, arya)
         XCTAssertEqual(starkHouse.sortedMember, [arya, robb])
     }
 }

@@ -53,8 +53,13 @@ class SeasonListViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let season = model[indexPath.row]
-        //navigationController?.pushViewController(EpisodeListViewController(model: season.sortedEpisodes), animated: true)
-        delegate?.seasonListViewController(self, didSelectSeason: season)
+
+        if splitViewController?.isCollapsed == false {
+                delegate?.seasonListViewController(self, didSelectSeason: season)
+        } else {
+            let seasonDetailViewController = SesaonDetailViewController(model: season)
+            navigationController?.pushViewController(seasonDetailViewController, animated: true)
+        }
         let notificationCenter = NotificationCenter.default
         let notification = Notification(name: Notification.Name(SEASON_DID_CHANGE_NOTIFICATION_NAME), object: self, userInfo: [SEASON_KEY: season])
         notificationCenter.post(notification)

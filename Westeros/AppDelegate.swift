@@ -12,7 +12,8 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var collapse: Bool = false
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         window = UIWindow(frame: UIScreen.main.bounds)
@@ -42,13 +43,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //SPLITVC
         let splitViewController = UISplitViewController()
      
-        
+        splitViewController.delegate = self
         splitViewController.viewControllers = [masterViewController.wrappedInNavigation(), houseController.wrappedInNavigation()]
         
         window?.rootViewController = splitViewController
         return true
     }
 }
+
+extension AppDelegate: UISplitViewControllerDelegate {
+    func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {
+        print("Entro")
+        return true
+    }
+    
+}
+
 
 
 

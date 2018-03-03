@@ -70,7 +70,12 @@ class HouseListTableViewController: UITableViewController {
         //Averiguar que casa se pulsa
         let house = model[indexPath.row]
         //Crear un controlador de detalles
-        delegate?.houseListViewController(self, didSelectHouse: house)
+        if splitViewController?.isCollapsed == false {
+            delegate?.houseListViewController(self, didSelectHouse: house)
+        } else {
+            let houseDetailViewController = HouseDetailViewController(model: house)
+            navigationController?.pushViewController(houseDetailViewController, animated: true)
+        }
         //Solo puede tener un delegado aunque se le pueda llamar desde más sitios
         //Si queremos que se entere más gente usamos notificaciones
         let notificationCenter = NotificationCenter.default
@@ -107,14 +112,16 @@ extension HouseListTableViewController: UITabBarControllerDelegate {
             let house =  HouseListTableViewController(model: Repository.local.houses).lastSelectedHouse()
             let houseVC = HouseDetailViewController(model: house)
             self.delegate = houseVC
-            showDetailViewController(houseVC.wrappedInNavigation(), sender: nil)
+            //showDetailViewController(houseVC.wrappedInNavigation(), sender: nil)
+            splitViewController?.viewControllers = [(splitViewController?.viewControllers[0])!, houseVC.wrappedInNavigation()]
         }
         if viewController is SeasonListViewController {
             let season = SeasonListViewController(model: Repository.local.seasons).lastSelectedSeason()
             let seasonVC = SesaonDetailViewController(model: season)
             let list = viewController as! SeasonListViewController
             list.delegate = seasonVC
-            showDetailViewController(seasonVC.wrappedInNavigation(), sender: nil)
+            //showDetailViewController(seasonVC.wrappedInNavigation(), sender: nil)
+            splitViewController?.viewControllers = [(splitViewController?.viewControllers[0])!, seasonVC.wrappedInNavigation()]
         }
     }
 }

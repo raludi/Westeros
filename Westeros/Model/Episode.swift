@@ -20,10 +20,11 @@ final class Episode {
         self.issueDate = issueDate
         self.summary = summary
         self.season = season
+        self.season?.add(newEpisode: self)
     }
     
     convenience init(title: String, issueDate: Date, season: Season) {
-        self.init(title: title, issueDate: issueDate, summary: "Esto es el resumen", season: season)
+        self.init(title: title, issueDate: issueDate, summary: "Without Summary", season: season)
     }
 }
 
@@ -61,5 +62,26 @@ extension Episode: Comparable {
         return lhs.proxyComparison < rhs.proxyComparison
     }
 }
+
+extension Episode: Decodable {
+    
+    enum myEpisodeKeys: String, CodingKey {
+        case title = "title"
+        case issueDate = "issueDate"
+        case summary = "summary"
+        case season = "season"
+    }
+    
+    convenience init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: myEpisodeKeys.self)
+        let title = try container.decode(String.self, forKey: .title)
+        let issueDate = try container.decode(String.self, forKey: .issueDate)
+        let summary = try container.decode(String.self, forKey: .summary)
+        let season = try container.decode(Season?.self, forKey: .season)
+        
+        self.init(title: title, issueDate: givingDateFormatted(date: issueDate), summary: summary, season: season!)
+    }
+}
+
 
 

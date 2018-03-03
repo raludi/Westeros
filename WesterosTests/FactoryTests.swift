@@ -52,6 +52,11 @@ class FactoryTests: XCTestCase {
         XCTAssertEqual(seasonName?.name, "Season 2")
     }
     
+    func testLocalRepository_ShouldReturnsHouseUsingEnum() {
+        let stark = Repository.local.house(named: HousesName.Stark)
+        XCTAssertEqual(stark?.name, "Stark")
+    }
+    
     func testHouseFiltering() {
         let filtered = Repository.local.houses(filteredBy: { $0.countMembers == 1 })
         XCTAssertEqual(filtered.count, 1)
