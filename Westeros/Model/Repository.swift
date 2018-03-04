@@ -98,20 +98,19 @@ final class LocalFactory: HouseFactory, SeasonFactory {
         _ = Episode(title: "Dragonstone", issueDate: givingDateFormatted(date: "16/07/2017"), summary: "This is the summary of episode 1", season: season7)
         _ = Episode(title: "Stormborn", issueDate: givingDateFormatted(date: "23/07/2017"), summary: "This is the summary of episode 2", season: season7)
 
-        let data = episodeModel.data(using: .utf8)!
-        //var seasons = [Season]()
+        /* data = episodeModel.data(using: .utf8)!
+        var seasons = [Season]()
          do {
              let jsonList = try JSONDecoder().decode([Episode].self, from: data)
              jsonList.forEach({ episode in
-                // guard let season = episode.season else { return }
-                // seasons.append(season)
+                 guard let season = episode.season else { return }
                  print(episode.title)
                  print(episode.season?.name)
              })
              print(jsonList)
          } catch {
             print("Error -> \(error)")
-         }
+         }*/
  
         return [season1, season2, season3, season4, season5, season6, season7].sorted()
     }
