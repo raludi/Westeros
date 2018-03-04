@@ -85,13 +85,13 @@ extension Season: Comparable {
 
 extension Season: Decodable {
     
-    enum mySeasonKeys: String, CodingKey {
+    enum CodingKeys: String, CodingKey {
         case name = "name"
         case releaseDate = "releaseDate"
         case image = "image"
     }
     convenience init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: mySeasonKeys.self)
+        let container = try decoder.container(keyedBy: CodingKeys.self)
         let name = try container.decode(String.self, forKey: .name)
         let releaseDate = try container.decode(String.self, forKey: .releaseDate)
         let image = try container.decode(String.self, forKey: .image)

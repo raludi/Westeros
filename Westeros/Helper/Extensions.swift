@@ -16,7 +16,7 @@ func givingDateFormatted(date: String) -> Date {
 }
 
 enum HousesName: String {
-    case Stark, Targaryen, Lannister
+    case Stark, Targaryen, Lannister, Tyrrel
 }
 
 

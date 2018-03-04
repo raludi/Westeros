@@ -15,10 +15,10 @@ let episodeModel = """
         "issueDate": "12/11/2014",
         "summary": "Probando el json",
         "season": {
-        "name": "Season 8",
-        "releaseDate": "01/04/2012",
-        "image": "season1.jpeg"
-}
+            "name": "Season 8",
+            "releaseDate": "01/04/2012",
+            "image": "season1.jpeg"
+        }
 },
 {
     "title": "Episode XI",
