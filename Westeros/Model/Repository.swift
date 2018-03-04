@@ -49,7 +49,7 @@ final class LocalFactory: HouseFactory, SeasonFactory {
         _ = Person(name: "Tyrion", alias: "The dwarf", house: lannisterHouse)
         _ = Person(name: "Cercei", house: lannisterHouse)
         _ = Person(name: "Daenerys", alias: "Mother of dragons", house: targaryenHouse)
-        _ = Person(name: "Margaery Tyrell", house: tyrrelHouse)
+        _ = Person(name: "Margaery", house: tyrrelHouse)
         
         return [starkHouse, lannisterHouse, targaryenHouse, tyrrelHouse].sorted()
     }

@@ -53,7 +53,11 @@ class SeasonListViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let season = model[indexPath.row]
-        delegate?.seasonListViewController(self, didSelectSeason: season)
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            delegate?.seasonListViewController(self, didSelectSeason: season)
+        } else if UIDevice.current.userInterfaceIdiom == .phone {
+            navigationController?.pushViewController(SesaonDetailViewController(model: season), animated: true)
+        }
         let notificationCenter = NotificationCenter.default
         let notification = Notification(name: Notification.Name(SEASON_DID_CHANGE_NOTIFICATION_NAME), object: self, userInfo: [SEASON_KEY: season])
         notificationCenter.post(notification)
